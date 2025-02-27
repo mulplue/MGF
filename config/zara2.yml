@@ -1,0 +1,24 @@
+MODEL:
+  TYPE: fastpredNF_CIF_separate_cond_clusterGMM
+  ENCODER_TYPE: trajectron
+
+DATA:
+  DATASET_NAME: "zara2"
+  TP:
+    PRED_STATE: 'state_v'
+    ACCEPT_NAN: True
+  BATCH_SIZE: 1024  # 128
+  NORMALIZED: False
+    
+SOLVER:
+  USE_SCHEDULER: True
+  WEIGHT_DECAY: 0.0
+  SAVE_EVERY: 1
+  LR: 1e-3  # 5e-3
+
+MGF:
+  ENABLE: True
+  CLUSTER_N: 8
+  VAR_INIT: 0.1
+  VAR_LEARNABLE: True
+  POST_CLUSTER: 500
